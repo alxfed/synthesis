@@ -1,6 +1,7 @@
 import numpy as np
-import numbers
+# import numbers
 
+"""
 def create_random_state(seed):
     """
     Take a seed and create a numpy.random.RandomState instance.
@@ -12,7 +13,7 @@ def create_random_state(seed):
     if isinstance(seed, (numbers.Integral, np.integer)):    # Integer
         return np.random.RandomState(seed)
     raise ValueError('%r cannot be used as a seed' % seed)
-
+"""
 
 def create_regression_dataset(numberof_points=100,
                               numberof_variables=100,
@@ -21,7 +22,7 @@ def create_regression_dataset(numberof_points=100,
                               model_bias=0.0,
                               noise=0.0,
                               coef=False,
-                              random_seed=None):
+                              random_seed=123):
     """
     Builds an underlying model based on model_rank basis of random vectors,
     then applyes it to an array of size numberof_points*numberof_variables
@@ -35,7 +36,7 @@ def create_regression_dataset(numberof_points=100,
     :return:
     """
     model_rank = min(numberof_variables, model_rank)
-    generator = create_random_state(random_seed)
+    generator = np.random.RandomState(random_seed)   # an instance of RandomState
     underlying_model = np.zeros((numberof_variables, numberof_hidden_variables))
     underlying_model[:model_rank, :] = 100 * generator.rand(
         model_rank, numberof_hidden_variables)
