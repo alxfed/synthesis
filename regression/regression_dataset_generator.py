@@ -1,19 +1,5 @@
 import numpy as np
-# import numbers
 
-"""
-def create_random_state(seed):
-    """
-    Take a seed and create a numpy.random.RandomState instance.
-    :param seed: integer or None
-    :return: RandomState instance
-    """
-    if seed is None:                                        # None
-        return np.random.mtrand._rand
-    if isinstance(seed, (numbers.Integral, np.integer)):    # Integer
-        return np.random.RandomState(seed)
-    raise ValueError('%r cannot be used as a seed' % seed)
-"""
 
 def create_regression_dataset(numberof_points=100,
                               numberof_variables=100,
